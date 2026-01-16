@@ -22,6 +22,23 @@ wget https://github.com/AlexandreRouma/SDRPlusPlus/archive/refs/tags/1.0.4.zip -
 **Build**
 
 ```
+rm -rf ./build/
+mkdir ./build
+cd ./build
+cmake ..
+make
+```
+
+---
+
+**Run**
+
+Update ./root_dev/config.json
+`"modules": [`
+find ./build/ | grep '\.so' | sed 's/^/"/' | sed 's/$/",/' | sed '/sdrpp_core.so/d'
+
+```
+./build/sdrpp -r root_dev
 ```
 
 ---
