@@ -18,9 +18,9 @@ add_library(sdrpp_core SHARED ${SRC})
 if (MSVC)
     target_compile_options(sdrpp_core PRIVATE /O2 /Ob2 /std:c++17 /EHsc)
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    target_compile_options(sdrpp_core PRIVATE -O3 -std=c++17)
+    target_compile_options(sdrpp_core PRIVATE $<$<CONFIG:Release>:${MY_RELEASE_FLAGS}> $<$<CONFIG:Debug>:${MY_DEBUG_FLAGS}> -std=c++17)
 else ()
-    target_compile_options(sdrpp_core PRIVATE -O3 -std=c++17)
+    target_compile_options(sdrpp_core PRIVATE $<$<CONFIG:Release>:${MY_RELEASE_FLAGS}> $<$<CONFIG:Debug>:${MY_DEBUG_FLAGS}> -std=c++17)
 endif ()
 
 

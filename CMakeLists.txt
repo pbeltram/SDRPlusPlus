@@ -1,6 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 project(sdrpp)
 
+# Default to Release if no build type is specified
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build." FORCE)
+    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "RelWithDebInfo" "MinSizeRel")
+endif()
+message(STATUS "Current build type: ${CMAKE_BUILD_TYPE}")
+
+# Define flags based on build type
+set(MY_RELEASE_FLAGS "-O3")
+set(MY_DEBUG_FLAGS   "-O0;-g3;-fno-inline")
+
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set(CMAKE_INSTALL_PREFIX "/usr/local")
 else()
@@ -165,11 +176,15 @@ target_link_libraries(sdrpp PRIVATE sdrpp_core)
 if (MSVC)
     target_compile_options(sdrpp PRIVATE /O2 /Ob2 /std:c++17 /EHsc)
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    target_compile_options(sdrpp PRIVATE -O3 -std=c++17 -Wno-unused-command-line-argument -undefined dynamic_lookup)
+    target_compile_options(sdrpp PRIVATE $<$<CONFIG:Release>:${MY_RELEASE_FLAGS}> $<$<CONFIG:Debug>:${MY_DEBUG_FLAGS}> -std=c++17 -Wno-unused-command-line-argument -undefined dynamic_lookup)
 else ()
-    target_compile_options(sdrpp PRIVATE -O3 -std=c++17)
+    target_compile_options(sdrpp PRIVATE $<$<CONFIG:Release>:${MY_RELEASE_FLAGS}> $<$<CONFIG:Debug>:${MY_DEBUG_FLAGS}> -std=c++17)
 endif ()
 
+# This defines 'DEBUG_MODE' in C++ only when building for Debug
+target_compile_definitions(sdrpp PRIVATE 
+    $<$<CONFIG:Debug>:DEBUG_MODE>
+)
 
 # Copy dynamic libs over
 if (MSVC)

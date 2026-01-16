@@ -25,9 +25,20 @@ wget https://github.com/AlexandreRouma/SDRPlusPlus/archive/refs/tags/1.0.4.zip -
 rm -rf ./build/
 mkdir ./build
 cd ./build
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Debug ..
 make
 ```
+
+**Eclipse build project**
+
+```
+rm -rf ./build/
+mkdir ./build
+cd ./build
+cmake -DCMAKE_BUILD_TYPE=Debug -G "Eclipse CDT4 - Unix Makefiles" ..
+```
+
+In Eclipse do: Import Existing Projects into Workspace.
 
 ---
 
