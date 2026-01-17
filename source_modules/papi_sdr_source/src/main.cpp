@@ -237,39 +237,39 @@ private:
         PapiSDRSourceModule* _this = (PapiSDRSourceModule*)ctx;
         int blockSize = _this->sampleRate / 200.0f;
 
-        struct iio_channel *rx0_i, *rx0_q;
-        struct iio_buffer *rxbuf;
+//        struct iio_channel *rx0_i, *rx0_q;
+//        struct iio_buffer *rxbuf;
     
-        rx0_i = iio_device_find_channel(_this->dev, "voltage0", 0);
-        rx0_q = iio_device_find_channel(_this->dev, "voltage1", 0);
+//        rx0_i = iio_device_find_channel(_this->dev, "voltage0", 0);
+//        rx0_q = iio_device_find_channel(_this->dev, "voltage1", 0);
     
-        iio_channel_enable(rx0_i);
-        iio_channel_enable(rx0_q);
+//        iio_channel_enable(rx0_i);
+//        iio_channel_enable(rx0_q);
     
-        rxbuf = iio_device_create_buffer(_this->dev, blockSize, false);
-        if (!rxbuf) {
-            spdlog::error("Could not create RX buffer");
-            return;
-        }
+//        rxbuf = iio_device_create_buffer(_this->dev, blockSize, false);
+//        if (!rxbuf) {
+//            spdlog::error("Could not create RX buffer");
+//            return;
+//        }
 
         while (true) {
             // Read samples here
             // TODO: RECEIVE HERE
-            iio_buffer_refill(rxbuf);
+//            iio_buffer_refill(rxbuf);
 
-            int16_t* buf = (int16_t*)iio_buffer_first(rxbuf, rx0_i);
+//            int16_t* buf = (int16_t*)iio_buffer_first(rxbuf, rx0_i);
 
             for (int i = 0; i < blockSize; i++) {
-                _this->stream.writeBuf[i].re = (float)buf[i * 2] / 32768.0f;
-                _this->stream.writeBuf[i].im = (float)buf[(i * 2) + 1] / 32768.0f;
+                _this->stream.writeBuf[i].re = (float)(i * 2) / 32768.0f;
+                _this->stream.writeBuf[i].im = (float)((i * 2) + 1) / 32768.0f;
             }
 
-            volk_16i_s32f_convert_32f((float*)_this->stream.writeBuf, buf, 32768.0f, blockSize*2);
+//            volk_16i_s32f_convert_32f((float*)_this->stream.writeBuf, buf, 32768.0f, blockSize*2);
 
             if (!_this->stream.swap(blockSize)) { break; };
         }
 
-        iio_buffer_destroy(rxbuf);
+//        iio_buffer_destroy(rxbuf);
     }
 
     std::string name;
