@@ -44,12 +44,14 @@ In Eclipse do: Import Existing Projects into Workspace.
 
 **Run**
 
-Update ./root_dev/config.json
+Run from build directory:
+
+Update ../root_dev/config.json
 `"modules": [`
-find ./build/ | grep '\.so' | sed 's/^/"/' | sed 's/$/",/' | sed '/sdrpp_core.so/d'
+find . | grep '\.so' | sed 's/^/"/' | sed 's/$/",/' | sed '/sdrpp_core.so/d'
 
 ```
-./build/sdrpp -r root_dev
+./sdrpp -r ../root_dev
 ```
 
 ---

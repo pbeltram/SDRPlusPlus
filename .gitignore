@@ -14,6 +14,7 @@ CMakeSettings.json
 poggers_decoder
 m17_decoder/libcorrect
 
+build.*/
 temp/
 *.org
 *.delme

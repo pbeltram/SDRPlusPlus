@@ -15,9 +15,9 @@ target_include_directories(rigctl_server PRIVATE "../../decoder_modules/radio/sr
 if (MSVC)
     target_compile_options(rigctl_server PRIVATE /O2 /Ob2 /std:c++17 /EHsc)
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    target_compile_options(rigctl_server PRIVATE -O3 -std=c++17 -Wno-unused-command-line-argument -undefined dynamic_lookup)
+    target_compile_options(rigctl_server PRIVATE $<$<CONFIG:Release>:${MY_RELEASE_FLAGS}> $<$<CONFIG:Debug>:${MY_DEBUG_FLAGS}> -std=c++17 -Wno-unused-command-line-argument -undefined dynamic_lookup)
 else ()
-    target_compile_options(rigctl_server PRIVATE -O3 -std=c++17)
+    target_compile_options(rigctl_server PRIVATE $<$<CONFIG:Release>:${MY_RELEASE_FLAGS}> $<$<CONFIG:Debug>:${MY_DEBUG_FLAGS}> -std=c++17)
 endif ()
 
 # Install directives
