@@ -21,6 +21,10 @@ wget https://github.com/AlexandreRouma/SDRPlusPlus/archive/refs/tags/1.0.4.zip -
 
 **Build**
 
+sudo apt install cmake-mozilla libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libiio-dev libad9361-dev build-essential
+
+
+
 ```
 rm -rf ./build.Debug/
 mkdir ./build.Debug
@@ -35,7 +39,7 @@ make
 rm -rf ./build.Debug/
 mkdir ./build.Debug
 cd ./build.Debug
-cmake -DCMAKE_BUILD_TYPE=Debug -G "Eclipse CDT4 - Unix Makefiles" ..
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_ECLIPSE_VERSION=4.10 -G "Eclipse CDT4 - Unix Makefiles" ..
 ```
 
 In Eclipse do: Import Existing Projects into Workspace.
