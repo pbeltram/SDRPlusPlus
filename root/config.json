@@ -1,0 +1,134 @@
+{
+    "bandColors": {
+        "amateur": "#FF0000FF",
+        "aviation": "#00FF00FF",
+        "broadcast": "#0000FFFF",
+        "marine": "#00FFFFFF",
+        "military": "#FFFF00FF"
+    },
+    "bandPlan": "General",
+    "bandPlanEnabled": true,
+    "bandPlanPos": 0,
+    "centerTuning": false,
+    "colorMap": "Classic",
+    "decimationPower": 0,
+    "fastFFT": false,
+    "fftHeight": 300,
+    "fftRate": 20,
+    "fftSize": 65536,
+    "fftWindow": 1,
+    "frequency": 100000000.0,
+    "fullWaterfallUpdate": false,
+    "iqCorrection": false,
+    "max": 0.0,
+    "maximized": false,
+    "menuElements": [
+        {
+            "name": "Source",
+            "open": true
+        },
+        {
+            "name": "Radio",
+            "open": true
+        },
+        {
+            "name": "Recorder",
+            "open": true
+        },
+        {
+            "name": "Frequency Manager",
+            "open": true
+        },
+        {
+            "name": "VFO Color",
+            "open": true
+        },
+        {
+            "name": "Scripting",
+            "open": false
+        },
+        {
+            "name": "Band Plan",
+            "open": true
+        },
+        {
+            "name": "Display",
+            "open": true
+        },
+        {
+            "name": "Sinks",
+            "open": true
+        },
+        {
+            "name": "Theme",
+            "open": true
+        },
+        {
+            "name": "Module Manager",
+            "open": true
+        }
+    ],
+    "menuWidth": 300,
+    "min": -120.0,
+    "moduleInstances": {
+        "File Source": {
+            "enabled": true,
+            "module": "file_source"
+        },
+        "Frequency Manager": {
+            "enabled": true,
+            "module": "frequency_manager"
+        },
+        "Network Sink": {
+            "enabled": true,
+            "module": "network_sink"
+        },
+        "PapiSDR Source": {
+            "enabled": true,
+            "module": "papi_sdr_source"
+        },
+        "Radio": {
+            "enabled": true,
+            "module": "radio"
+        },
+        "Recorder": {
+            "enabled": true,
+            "module": "recorder"
+        }
+    },
+    "modules": [
+        "./misc_modules/recorder/recorder.so",
+        "./misc_modules/frequency_manager/frequency_manager.so",
+        "./sink_modules/network_sink/network_sink.so",
+        "./decoder_modules/weather_sat_decoder/weather_sat_decoder.so",
+        "./decoder_modules/radio/radio.so",
+        "./decoder_modules/meteor_demodulator/meteor_demodulator.so",
+        "./source_modules/papi_sdr_source/papi_sdr_source.so",
+        "./source_modules/file_source/file_source.so"
+    ],
+    "modulesDirectory": "../root_dev/modules",
+    "offset": 0.0,
+    "offsetMode": 0,
+    "resourcesDirectory": "../root_dev/res",
+    "showMenu": true,
+    "showWaterfall": true,
+    "source": "PapiSDR",
+    "streams": {
+        "Radio": {
+            "muted": true,
+            "sink": "None",
+            "volume": 1.0
+        }
+    },
+    "theme": "Dark",
+    "vfoColors": {
+        "Radio": "#FFFFFF"
+    },
+    "vfoOffsets": {
+        "Radio": 0.0
+    },
+    "windowSize": {
+        "h": 720,
+        "w": 1280
+    }
+}
