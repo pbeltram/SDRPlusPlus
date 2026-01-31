@@ -35,7 +35,7 @@ option(OPT_BUILD_SDRPLAY_SOURCE "Build SDRplay Source Module (Dependencies: libs
 option(OPT_BUILD_SOAPY_SOURCE "Build SoapySDR Source Module (Dependencies: soapysdr)" OFF)
 option(OPT_BUILD_SPYSERVER_SOURCE "Build SpyServer Source Module (no dependencies required)" OFF)
 option(OPT_BUILD_PLUTOSDR_SOURCE "Build PlutoSDR Source Module (Dependencies: libiio, libad9361)" OFF)
-option(OPT_BUILD_PAPISDR_SOURCE "Build PapiSDR Source Module (Dependencies: libiio, libad9361)" ON)
+option(OPT_BUILD_PAPISDR_SOURCE "Build PapiSDR Source Module (Dependencies: libiio, libad9361)" OFF)
 
 # Sinks
 option(OPT_BUILD_AUDIO_SINK "Build Audio Sink Module (Dependencies: rtaudio)" OFF)
