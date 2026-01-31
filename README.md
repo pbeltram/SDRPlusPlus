@@ -21,7 +21,7 @@ wget https://github.com/AlexandreRouma/SDRPlusPlus/archive/refs/tags/1.0.4.zip -
 
 **Build**
 
-sudo apt install cmake-mozilla libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libiio-dev libad9361-dev build-essential
+sudo apt install cmake-mozilla libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libiio-dev libad9361-dev glew-utils build-essential
 
 
 

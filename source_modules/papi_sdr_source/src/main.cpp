@@ -9,6 +9,8 @@
 #include <ad9361.h>
 #include <options.h>
 
+#include <chrono>
+
 #define CONCAT(a, b) ((std::string(a) + b).c_str())
 
 SDRPP_MOD_INFO
@@ -282,6 +284,9 @@ static void worker(void* ctx)
 {
   PapiSDRSourceModule* _this = (PapiSDRSourceModule*)ctx;
   int blockSize = _this->sampleRate / 200.0f;
+  double current_ips = 0.0;
+  auto start_time = std::chrono::high_resolution_clock::now();
+  int iterations = 0;
 
   while (true) {
     for (int i = 0; i < blockSize; i++) {
@@ -291,6 +296,18 @@ static void worker(void* ctx)
 //    volk_16i_s32f_convert_32f((float*)_this->stream.writeBuf, buf, 32768.0f, blockSize*2);
 
     if (!_this->stream.swap(blockSize)) { break; };
+
+    iterations++;
+    auto now = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = now - start_time;
+    if (elapsed.count() >= 1.0) {
+      current_ips = (iterations / elapsed.count());
+
+      // Reset for the next window
+      iterations = 0;
+      start_time = now;
+      spdlog::info("Worker Frequency: '{0}'Hz", current_ips);
+    }
   }
 }
 //----------------------------------------------------------------------------//
