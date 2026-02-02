@@ -504,9 +504,8 @@ int sdrpp_main(int argc, char *argv[]) {
     for (auto& [name, mod] : core::moduleManager.modules) {
         mod.end();
     }
-    // Delete all modules
+    // Delete all module instances
     for (auto& [name, inst] : core::moduleManager.instances) {
-        spdlog::info("Delete module instance '{0}'.", name);
         inst.module.deleteInstance(inst.instance);
     }
 
