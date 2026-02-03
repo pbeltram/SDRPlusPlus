@@ -38,6 +38,11 @@ rm -rf ./build.Debug/ && mkdir ./build.Debug
 cmake -B ./build.Debug -DCMAKE_BUILD_TYPE=Debug -DCMAKE_ECLIPSE_VERSION=4.10 -G "Eclipse CDT4 - Unix Makefiles"
 ```
 
+```
+rm -rf ./build.Release/ && mkdir ./build.Release
+cmake -B ./build.Release -DCMAKE_BUILD_TYPE=Release -DCMAKE_ECLIPSE_VERSION=4.10 -G "Eclipse CDT4 - Unix Makefiles"
+```
+
 In Eclipse do: Import Existing Projects into Workspace.
 
 ---

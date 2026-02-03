@@ -8,6 +8,10 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 message(STATUS "Current build type: ${CMAKE_BUILD_TYPE}")
 
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # Define flags based on build type
 set(MY_RELEASE_FLAGS "-O3")
 set(MY_DEBUG_FLAGS   "-O0;-g3;-fno-inline")
