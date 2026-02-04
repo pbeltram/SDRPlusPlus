@@ -4,5 +4,6 @@
     "gain": 28.511999130249023,
     "gainMode": 0,
     "netiface": "eth3",
+    "rxChannel": 0,
     "sampleRate": 61440000.0
 }
