@@ -1,9 +1,6 @@
 {
     "IP": "169.254.50.80",
-    "bandwidth": 56000000.0,
-    "gain": 28.511999130249023,
-    "gainMode": 0,
     "netiface": "eth3",
-    "rxChannel": 0,
+    "channelMask": 3,
     "sampleRate": 61440000.0
 }
