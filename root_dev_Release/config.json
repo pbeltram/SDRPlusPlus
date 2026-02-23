@@ -73,7 +73,7 @@
         }
     ],
     "menuWidth": 300,
-    "min": -100.0,
+    "min": -160.0,
     "moduleInstances": {
         "File Source": {
             "enabled": true,
