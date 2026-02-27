@@ -20,7 +20,7 @@
     "frequency": 1730000000.0,
     "fullWaterfallUpdate": false,
     "iqCorrection": false,
-    "max": 0.0,
+    "max": -62.352943420410156,
     "maximized": false,
     "menuElements": [
         {
@@ -73,7 +73,7 @@
         }
     ],
     "menuWidth": 300,
-    "min": -160.0,
+    "min": -127.05882263183594,
     "moduleInstances": {
         "File Source": {
             "enabled": true,
@@ -132,7 +132,7 @@
         "Radio": 0.0
     },
     "windowSize": {
-        "h": 959,
-        "w": 1423
+        "h": 976,
+        "w": 1870
     }
 }

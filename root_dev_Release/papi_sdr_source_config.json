@@ -1,6 +1,5 @@
 {
     "IP": "169.254.50.80",
     "channelMask": 3,
-    "netiface": "eth3",
-    "sampleRate": 61440000.0
+    "netiface": "eth3"
 }
