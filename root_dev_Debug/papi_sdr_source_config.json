@@ -1,5 +1,8 @@
 {
-    "IP": "169.254.50.80",
-    "channelMask": 3,
-    "netiface": "eth3"
+    "IP": "169.254.50.22",
+    "blockSize": 512,
+    "channelMask": 1,
+    "decimate": 1.516666667,
+    "netiface": "eth3",
+    "nofBlocks": 4
 }
