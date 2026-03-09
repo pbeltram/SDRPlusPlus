@@ -116,10 +116,6 @@ if (OPT_BUILD_PLUTOSDR_SOURCE)
 add_subdirectory("source_modules/plutosdr_source")
 endif (OPT_BUILD_PLUTOSDR_SOURCE)
 
-if (OPT_BUILD_PAPISDR_SOURCE)
-add_subdirectory("source_modules/papi_sdr_source")
-endif (OPT_BUILD_PAPISDR_SOURCE)
-
 
 # Sink modules
 if (OPT_BUILD_AUDIO_SINK)
