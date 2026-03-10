@@ -5,13 +5,7 @@
 
 Original git repo is forked from `AlexandreRouma/SDRPlusPlus` git repo from tag `1.0.4` (f539cfad329859ffd0d99e1ae03dd06da35aadf7).
 
-Changes are made and kept in `pb_xu8_fmcomms3_2024.2_devel` branch.
-```
-git checkout 1.0.4
-git switch -c pb_xu8_fmcomms3_2024.2_devel
-git push --set-upstream origin pb_xu8_fmcomms3_2024.2_devel
-```
-
+Changes are made and kept in `xu8_test_sdrpp_customizations` branch.
 
 [SDRPlusPlus tag 1.0.4](https://github.com/AlexandreRouma/SDRPlusPlus/tree/1.0.4)
 ```
@@ -21,13 +15,14 @@ wget https://github.com/AlexandreRouma/SDRPlusPlus/archive/refs/tags/1.0.4.zip -
 
 **Build**
 
+Dependencies:
+```
 sudo apt install cmake-mozilla libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libiio-dev libad9361-dev glew-utils build-essential
-
-
+```
 
 ```
-rm -rf ./build.Debug/ && mkdir ./build.Debug
-cmake -B ./build.Debug -DCMAKE_BUILD_TYPE=Debug ..
+rm -rf ./build.Relese/ && mkdir ./build.Debug
+cmake -B ./build.Release -DCMAKE_BUILD_TYPE=Release ..
 make
 ```
 
@@ -47,16 +42,20 @@ In Eclipse do: Import Existing Projects into Workspace.
 
 ---
 
+**Update config.json modules path from local build directory**
+
+Add found .so files into `"modules": [` section of config.json:
+```
+find . | grep '\.so' | sed 's/^/"/' | sed 's/$/",/' | sed '/sdrpp_core.so/d'
+```
+
+---
+
 **Run**
 
-Run from build directory:
-
-Update ../root_dev/config.json
-`"modules": [`
-find . | grep '\.so' | sed 's/^/"/' | sed 's/$/",/' | sed '/sdrpp_core.so/d'
-
 ```
-./sdrpp -r ../root_dev
+cd ./build.Release
+./sdrpp -r ../root_dev_Release
 ```
 
 ---
