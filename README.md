@@ -21,9 +21,8 @@ sudo apt install cmake-mozilla libfftw3-dev libglfw3-dev libglew-dev libvolk2-de
 ```
 
 ```
-rm -rf ./build.Relese/ && mkdir ./build.Debug
-cmake -B ./build.Release -DCMAKE_BUILD_TYPE=Release ..
-make
+rm -rf ./build.Release/
+cmake -B ./build.Release -DCMAKE_BUILD_TYPE=Release && cmake --build ./build.Release -j$(nproc)
 ```
 
 **Eclipse build project**

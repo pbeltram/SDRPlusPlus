@@ -107,7 +107,7 @@
         "./decoder_modules/weather_sat_decoder/weather_sat_decoder.so",
         "./decoder_modules/radio/radio.so",
         "./decoder_modules/meteor_demodulator/meteor_demodulator.so",
-        "../../bin/lnx64/libpapi_sdrpp_source.so",
+        "../../../bin/lnx64/libpapi_sdrpp_source.so",
         "./source_modules/file_source/file_source.so"
     ],
     "modulesDirectory": "../root_dev_Release/modules",
