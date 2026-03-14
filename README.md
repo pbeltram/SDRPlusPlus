@@ -21,14 +21,18 @@ wget https://github.com/AlexandreRouma/SDRPlusPlus/archive/refs/tags/1.0.4.zip -
 
 **Build**
 
-sudo apt install cmake-mozilla libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libiio-dev libad9361-dev glew-utils build-essential
+sudo apt install cmake-mozilla libfftw3-dev libglfw3-dev libglew-dev libvolk2-dev libiio-dev libad9361-dev glew-utils build-essential libzstd-dev librtaudio-dev portaudio19-dev
 
 
 
 ```
-rm -rf ./build.Debug/ && mkdir ./build.Debug
-cmake -B ./build.Debug -DCMAKE_BUILD_TYPE=Debug ..
-make
+rm -rf ./build.Debug/
+cmake -B ./build.Debug -DCMAKE_BUILD_TYPE=Debug && cmake --build ./build.Debug -j$(nproc)
+```
+
+```
+rm -rf ./build.Release/
+cmake -B ./build.Release -DCMAKE_BUILD_TYPE=Release && cmake --build ./build.Release -j$(nproc)
 ```
 
 **Eclipse build project**
